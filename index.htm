@@ -1,35 +1,205 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HDXOR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            darkcyan: {
+              900: '#0b1d28',
+              800: '#132e3f',
+              700: '#1c4259',
+              600: '#275875',
+              300: '#73c3e6',
+              100: '#e0f2fe'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #0b1d28;
+      color: #e0f2fe;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    .glass-card {
+      background: rgba(19, 46, 63, 0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between bg-darkcyan-900 text-slate-100">
 
-<img src="images.jpg" alt="You are donkey." width="554" height="554">
+  <header class="sticky top-0 z-50 w-full bg-darkcyan-800/90 backdrop-blur-md border-b border-darkcyan-700/80 shadow-lg transition-all">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="#" class="text-2xl font-extrabold tracking-wide text-cyan-300 hover:text-cyan-200 transition-colors">
+        HDXOR BLOG
+      </a>
+      
+      <nav class="flex items-center gap-2 sm:gap-6 text-sm font-medium">
+        <a href="#photo-section" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-cyan-300 hover:bg-darkcyan-700/50 transition-all">照片</a>
+        <a href="#video-section" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-cyan-300 hover:bg-darkcyan-700/50 transition-all">影片</a>
+        <a href="#chart-section" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-cyan-300 hover:bg-darkcyan-700/50 transition-all">圖表</a>
+        <a href="#links-section" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-cyan-300 hover:bg-darkcyan-700/50 transition-all">連結</a>
+      </nav>
+    </div>
+  </header>
 
-<!DOCTYPE html>
-<html>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<body>
+  <main class="max-w-6xl w-full mx-auto px-4 py-8 space-y-12 flex-grow">
 
-<div id="myPlot" style="width:100%;max-width:700px"></div>
+    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+      <div id="photo-section" class="glass-card rounded-2xl p-6 flex flex-col items-center justify-between scroll-mt-24">
+        <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide">You are donkey.</h2>
+        <div class="overflow-hidden rounded-xl border border-darkcyan-600 max-w-full my-auto">
+          <img 
+            src="images.jpg" 
+            alt="You are donkey." 
+            class="w-full h-auto max-w-md object-cover rounded-xl"
+            onerror="this.onerror=null; this.src='https://placehold.co/550x550/132e3f/73c3e6?text=You+are+donkey.';"
+          >
+        </div>
+      </div>
 
-<script>
-const xArray = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yArray = [55, 49, 44, 24, 15];
+      <div id="video-section" class="glass-card rounded-2xl p-6 flex flex-col items-center justify-between scroll-mt-24">
+        <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide">Polish Dancing Cow</h2>
+        <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-darkcyan-600 bg-black my-auto">
+          <iframe 
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/rkR6b-zz-Rs" 
+            title="Polish Dancing Cow | [1 Hour Version]" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="no-referrer-when-downgrade" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
 
-const data = [{
-  x:xArray,
-  y:yArray,
-  type:"bar",
-  orientation:"v",
-  marker: {color:"rgba(0,0,255,0.6)"}
-}];
+    <section id="chart-section" class="glass-card rounded-2xl p-6 scroll-mt-24">
+      <div class="flex flex-col items-center">
+        <div id="myPlot" class="w-full rounded-xl overflow-hidden min-h-[350px]"></div>
+      </div>
+    </section>
 
-const layout = {title:"World Wide Wine Production"};
+    <section id="links-section" class="space-y-6 scroll-mt-24">
+      <h2 class="text-3xl font-bold text-slate-100 tracking-wide">連結</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="https://lck0408.github.io/web/index.html" target="_blank" rel="noopener noreferrer" 
+           class="glass-card rounded-2xl p-6 flex flex-col justify-between h-48 border border-slate-700/50 hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div>
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-cyan-950/80 text-cyan-400 font-bold text-xs mb-4 border border-cyan-800/50">
+              01
+            </span>
+            <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors">同學一</h3>
+          </div>
+          <div class="flex items-center text-cyan-400 font-medium text-sm group-hover:translate-x-1 transition-transform">
+            點擊前往 <span class="ml-1">→</span>
+          </div>
+        </a>
 
-Plotly.newPlot("myPlot", data, layout);
-</script>
+        <a href="https://giohrtgesb.github.io/net-homework/" target="_blank" rel="noopener noreferrer" 
+           class="glass-card rounded-2xl p-6 flex flex-col justify-between h-48 border border-slate-700/50 hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div>
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-cyan-950/80 text-cyan-400 font-bold text-xs mb-4 border border-cyan-800/50">
+              02
+            </span>
+            <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors">同學二</h3>
+          </div>
+          <div class="flex items-center text-cyan-400 font-medium text-sm group-hover:translate-x-1 transition-transform">
+            點擊前往 <span class="ml-1">→</span>
+          </div>
+        </a>
 
-</body>
-</html>
+        <a href="https://87mark0109.github.io/yifanxiaogg/" target="_blank" rel="noopener noreferrer" 
+           class="glass-card rounded-2xl p-6 flex flex-col justify-between h-48 border border-slate-700/50 hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300 group">
+          <div>
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-cyan-950/80 text-cyan-400 font-bold text-xs mb-4 border border-cyan-800/50">
+              03
+            </span>
+            <h3 class="text-xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors">同學三</h3>
+          </div>
+          <div class="flex items-center text-cyan-400 font-medium text-sm group-hover:translate-x-1 transition-transform">
+            點擊前往 <span class="ml-1">→</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
+    <section class="glass-card rounded-2xl p-6">
+      <h3 class="text-xl font-bold text-cyan-200 mb-4 border-b border-darkcyan-700 pb-2">About me</h3>
+      <div class="grid grid-cols-2 gap-4 items-center">
+        <a href="https://www.instagram.com/do._.0420/" target="_blank" rel="noopener noreferrer" 
+           class="w-full h-24 rounded-xl bg-darkcyan-700/80 hover:bg-darkcyan-600 hover:scale-105 transition-all text-cyan-300 shadow flex items-center justify-center border border-darkcyan-600" aria-label="Instagram">
+          <i class="fa-brands fa-instagram text-4xl"></i>
+        </a>
+        <a href="https://www.facebook.com/huang.dou.962148" target="_blank" rel="noopener noreferrer" 
+           class="w-full h-24 rounded-xl bg-darkcyan-700/80 hover:bg-darkcyan-600 hover:scale-105 transition-all text-cyan-300 shadow flex items-center justify-center border border-darkcyan-600" aria-label="Facebook">
+          <i class="fa-brands fa-facebook text-4xl"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="w-full bg-darkcyan-800 border-t border-darkcyan-700 py-6 text-center text-sm text-darkcyan-300 mt-12 flex flex-col items-center gap-4">
+    <div class="flex items-center gap-4">
+      <a href="https://www.instagram.com/do._.0420/" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:text-cyan-100 text-xl transition-colors" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/huang.dou.962148" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:text-cyan-100 text-xl transition-colors" aria-label="Facebook">
+        <i class="fa-brands fa-facebook"></i>
+      </a>
+    </div>
+    <p>Copyright © 2026 HUANG XUAN-RUI All right reserved.</p>
+  </footer>
+
+  <script>
+    const xArray = ["Very agree", "Agree", "Maybe", "Unagree", "Very unagree"];
+    const yArray = [50, 25, 13, 7, 5];
+
+    const data = [{
+      x: xArray,
+      y: yArray,
+      type: "bar",
+      orientation: "v",
+      marker: {
+        color: [
+          "rgb(239, 68, 68)",
+          "rgb(245, 158, 11)",
+          "rgb(34, 197, 94)",
+          "rgb(20, 184, 166)",
+          "rgb(59, 130, 246)"
+        ]
+      }
+    }];
+
+    const layout = {
+      title: {
+        text: "Are you donkey?",
+        font: { size: 20, color: '#a5f3fc' }
+      },
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      plot_bgcolor: 'rgba(0,0,0,0)',
+      font: { color: '#cbd5e1' },
+      xaxis: { gridcolor: '#1c4259', zerolinecolor: '#1c4259' },
+      yaxis: { gridcolor: '#1c4259', zerolinecolor: '#1c4259' },
+      margin: { t: 50, l: 50, r: 30, b: 50 }
+    };
+
+    Plotly.newPlot("myPlot", data, layout, { responsive: true, displayModeBar: false });
+  </script>
 </body>
 </html>
