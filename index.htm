@@ -61,13 +61,25 @@
     <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
       <div id="photo-section" class="glass-card rounded-2xl p-6 flex flex-col items-center justify-between scroll-mt-24">
         <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide">You are donkey.</h2>
-        <div class="overflow-hidden rounded-xl border border-darkcyan-600 max-w-full my-auto">
-          <img 
-            src="images.jpg" 
-            alt="You are donkey." 
-            class="w-full h-auto max-w-md object-cover rounded-xl"
-            onerror="this.onerror=null; this.src='https://placehold.co/550x550/132e3f/73c3e6?text=You+are+donkey.';"
-          >
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full my-auto">
+          <div class="overflow-hidden rounded-xl border border-darkcyan-600 flex items-center justify-center bg-black/20">
+            <img 
+              src="images.jpg" 
+              alt="You are donkey." 
+              class="w-full h-auto object-cover rounded-xl"
+              onerror="this.onerror=null; this.src='https://placehold.co/550x550/132e3f/73c3e6?text=You+are+donkey.';"
+            >
+          </div>
+
+          <div class="overflow-hidden rounded-xl border border-darkcyan-600 flex items-center justify-center bg-black/20">
+            <img 
+              src="我是說在座的各位都是垃圾.gif" 
+              alt="我是說在座的各位都是垃圾" 
+              class="w-full h-auto object-cover rounded-xl"
+              onerror="this.onerror=null; this.src='https://placehold.co/550x550/132e3f/73c3e6?text=%E5%9C%A8%E5%BA%A7%E7%9A%84%E5%90%84%E4%BD%8D';"
+            >
+          </div>
         </div>
       </div>
 
@@ -200,6 +212,11 @@
     };
 
     Plotly.newPlot("myPlot", data, layout, { responsive: true, displayModeBar: false });
+
+    // 視窗自動縮放圖表支援
+    window.addEventListener('resize', () => {
+      Plotly.Plots.resize('myPlot');
+    });
   </script>
 </body>
 </html>
