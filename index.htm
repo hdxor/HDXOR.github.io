@@ -58,44 +58,44 @@
 
   <main class="max-w-6xl w-full mx-auto px-4 py-8 space-y-12 flex-grow">
 
-    <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-      <div id="photo-section" class="glass-card rounded-2xl p-6 flex flex-col items-center justify-between scroll-mt-24">
+    <div id="photo-section" class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch scroll-mt-24">
+      <div class="glass-card rounded-2xl p-6 flex flex-col items-center justify-between">
         <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide">You are donkey.</h2>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full my-auto">
-          <div class="overflow-hidden rounded-xl border border-darkcyan-600 flex items-center justify-center bg-black/20">
-            <img 
-              src="images.jpg" 
-              alt="You are donkey." 
-              class="w-full h-auto object-cover rounded-xl"
-              onerror="this.onerror=null; this.src='https://placehold.co/550x550/132e3f/73c3e6?text=You+are+donkey.';"
-            >
-          </div>
-
-          <div class="overflow-hidden rounded-xl border border-darkcyan-600 flex items-center justify-center bg-black/20">
-            <img 
-              src="我是說在座的各位都是垃圾.gif" 
-              alt="我是說在座的各位都是垃圾" 
-              class="w-full h-auto object-cover rounded-xl"
-              onerror="this.onerror=null; this.src='https://placehold.co/550x550/132e3f/73c3e6?text=%E5%9C%A8%E5%BA%A7%E7%9A%84%E5%90%84%E4%BD%8D';"
-            >
-          </div>
+        <div class="overflow-hidden rounded-xl border border-darkcyan-600 max-w-full my-auto">
+          <img 
+            src="images.jpg" 
+            alt="You are donkey." 
+            class="w-full h-auto max-w-md object-cover rounded-xl"
+            onerror="this.onerror=null; this.src='https://placehold.co/550x550/132e3f/73c3e6?text=You+are+donkey.';"
+          >
         </div>
       </div>
 
-      <div id="video-section" class="glass-card rounded-2xl p-6 flex flex-col items-center justify-between scroll-mt-24">
-        <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide">Polish Dancing Cow</h2>
-        <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-darkcyan-600 bg-black my-auto">
-          <iframe 
-            class="w-full h-full"
-            src="https://www.youtube.com/embed/rkR6b-zz-Rs" 
-            title="Polish Dancing Cow | [1 Hour Version]" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="no-referrer-when-downgrade" 
-            allowfullscreen>
-          </iframe>
+      <div class="glass-card rounded-2xl p-6 flex flex-col items-center justify-between">
+        <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide">我是說在座的各位...</h2>
+        <div class="overflow-hidden rounded-xl border border-darkcyan-600 max-w-full my-auto">
+          <img 
+            src="我是說在座的各位都是垃圾.gif" 
+            alt="我是說在座的各位都是垃圾" 
+            class="w-full h-auto max-w-md object-cover rounded-xl"
+            onerror="this.onerror=null; this.src='https://placehold.co/550x550/132e3f/73c3e6?text=%E5%9C%A8%E5%BA%A7%E7%9A%84%E5%90%84%E4%BD%8D';"
+          >
         </div>
+      </div>
+    </div>
+
+    <section id="video-section" class="glass-card rounded-2xl p-6 flex flex-col items-center justify-between scroll-mt-24">
+      <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide">Polish Dancing Cow</h2>
+      <div class="relative w-full max-w-3xl aspect-video rounded-xl overflow-hidden border border-darkcyan-600 bg-black my-auto">
+        <iframe 
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/rkR6b-zz-Rs" 
+          title="Polish Dancing Cow | [1 Hour Version]" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="no-referrer-when-downgrade" 
+          allowfullscreen>
+        </iframe>
       </div>
     </section>
 
@@ -213,7 +213,6 @@
 
     Plotly.newPlot("myPlot", data, layout, { responsive: true, displayModeBar: false });
 
-    // 視窗自動縮放圖表支援
     window.addEventListener('resize', () => {
       Plotly.Plots.resize('myPlot');
     });
