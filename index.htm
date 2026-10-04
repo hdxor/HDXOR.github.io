@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HDXOR</title>
+  
+  <!-- 引入外部 CSS 框架 (Tailwind CSS) 與 圖表函式庫 (Plotly.js) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+  <!-- 設定 Tailwind CSS 的自訂顏色主題 (darkcyan 系列) -->
   <script>
     tailwind.config = {
       theme: {
@@ -24,6 +28,8 @@
       }
     }
   </script>
+  
+  <!-- 全域樣式與磨砂玻璃效果 (Glassmorphism) 類別定義 -->
   <style>
     body {
       background-color: #0b1d28;
@@ -40,12 +46,15 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between bg-darkcyan-900 text-slate-100">
 
+  <!-- 頂部導覽列 (Header & Navigation) -->
   <header class="sticky top-0 z-50 w-full bg-darkcyan-800/90 backdrop-blur-md border-b border-darkcyan-700/80 shadow-lg transition-all">
     <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <!-- 網站標題 / Logo -->
       <a href="#" class="text-2xl font-extrabold tracking-wide text-cyan-300 hover:text-cyan-200 transition-colors">
         HDXOR的梗圖毒窟
       </a>
       
+      <!-- 頁面快速錨點連結 -->
       <nav class="flex items-center gap-2 sm:gap-6 text-sm font-medium">
         <a href="#photo-section" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-cyan-300 hover:bg-darkcyan-700/50 transition-all">照片</a>
         <a href="#video-section" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-cyan-300 hover:bg-darkcyan-700/50 transition-all">影片</a>
@@ -55,9 +64,12 @@
     </div>
   </header>
 
+  <!-- 主要內容區塊 (Main Content) -->
   <main class="max-w-6xl w-full mx-auto px-4 py-8 space-y-12 flex-grow">
 
+    <!-- 1. 照片 / 梗圖展示區塊 -->
     <div id="photo-section" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch scroll-mt-24">
+      <!-- 圖片卡片 1 -->
       <div class="glass-card rounded-2xl p-6 flex flex-col items-center h-full">
         <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide text-center">You are donkey.</h2>
         <div class="flex-grow flex items-center justify-center w-full">
@@ -70,6 +82,7 @@
         </div>
       </div>
 
+      <!-- 圖片卡片 2 (GIF 檔) -->
       <div class="glass-card rounded-2xl p-6 flex flex-col items-center h-full">
         <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide text-center">我是說在座的各位...</h2>
         <div class="flex-grow flex items-center justify-center w-full">
@@ -83,6 +96,7 @@
       </div>
     </div>
 
+    <!-- 2. 影片展示區塊 (嵌入 YouTube 影片) -->
     <section id="video-section" class="glass-card rounded-2xl p-6 flex flex-col items-center justify-between scroll-mt-24">
       <h2 class="text-xl font-bold text-cyan-200 mb-4 tracking-wide">Polish Dancing Cow</h2>
       <div class="relative w-full max-w-3xl aspect-video rounded-xl overflow-hidden border border-darkcyan-600 bg-black my-auto">
@@ -98,16 +112,19 @@
       </div>
     </section>
 
+    <!-- 3. 圖表展示區塊 (預留給 Plotly.js 渲染) -->
     <section id="chart-section" class="glass-card rounded-2xl p-6 scroll-mt-24">
       <div class="flex flex-col items-center">
         <div id="myPlot" class="w-full rounded-xl overflow-hidden min-h-[350px]"></div>
       </div>
     </section>
 
+    <!-- 4. 同學網頁連結區塊 -->
     <section id="links-section" class="space-y-6 scroll-mt-24">
       <h2 class="text-3xl font-bold text-slate-100 tracking-wide">連結</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- 同學 1 連結卡片 -->
         <a href="https://lck0408.github.io/web/index.html" target="_blank" rel="noopener noreferrer" 
            class="glass-card rounded-2xl p-6 flex flex-col justify-between h-48 border border-slate-700/50 hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300 group">
           <div>
@@ -121,6 +138,7 @@
           </div>
         </a>
 
+        <!-- 同學 2 連結卡片 -->
         <a href="https://giohrtgesb.github.io/net-homework/" target="_blank" rel="noopener noreferrer" 
            class="glass-card rounded-2xl p-6 flex flex-col justify-between h-48 border border-slate-700/50 hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300 group">
           <div>
@@ -134,6 +152,7 @@
           </div>
         </a>
 
+        <!-- 同學 3 連結卡片 -->
         <a href="https://87mark0109.github.io/yifanxiaogg/" target="_blank" rel="noopener noreferrer" 
            class="glass-card rounded-2xl p-6 flex flex-col justify-between h-48 border border-slate-700/50 hover:border-cyan-500/50 hover:-translate-y-1 transition-all duration-300 group">
           <div>
@@ -149,25 +168,25 @@
       </div>
     </section>
 
-    <!-- About Me 區塊 -->
+    <!-- 5. 關於我 (About Me) 個人社群連結區塊 -->
     <section class="glass-card rounded-2xl p-6">
       <h3 class="text-xl font-bold text-cyan-200 mb-4 border-b border-darkcyan-700 pb-2">About me</h3>
       <div class="grid grid-cols-3 gap-4 items-center">
-        <!-- Instagram -->
+        <!-- Instagram 圖示連結 -->
         <a href="https://www.instagram.com/do._.0420/" target="_blank" rel="noopener noreferrer" 
            class="w-full h-24 rounded-xl bg-darkcyan-700/80 hover:bg-darkcyan-600 hover:scale-105 transition-all text-cyan-300 shadow flex items-center justify-center border border-darkcyan-600" aria-label="Instagram">
           <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24">
             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
           </svg>
         </a>
-        <!-- Facebook -->
+        <!-- Facebook 圖示連結 -->
         <a href="https://www.facebook.com/huang.dou.962148" target="_blank" rel="noopener noreferrer" 
            class="w-full h-24 rounded-xl bg-darkcyan-700/80 hover:bg-darkcyan-600 hover:scale-105 transition-all text-cyan-300 shadow flex items-center justify-center border border-darkcyan-600" aria-label="Facebook">
           <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24">
             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
           </svg>
         </a>
-        <!-- Discord -->
+        <!-- Discord 圖示連結 -->
         <a href="https://discord.com/users/1143917714117759107" target="_blank" rel="noopener noreferrer" 
            class="w-full h-24 rounded-xl bg-darkcyan-700/80 hover:bg-darkcyan-600 hover:scale-105 transition-all text-cyan-300 shadow flex items-center justify-center border border-darkcyan-600" aria-label="Discord">
           <svg class="w-10 h-10 fill-current" viewBox="0 0 24 24">
@@ -182,63 +201,61 @@
   <!-- 頁尾 (Footer) 區塊 -->
   <footer class="w-full bg-darkcyan-800 border-t border-darkcyan-700 py-6 text-center text-sm text-darkcyan-300 mt-12 flex flex-col items-center gap-4">
     <div class="flex items-center gap-6">
-      <!-- Instagram -->
       <a href="https://www.instagram.com/do._.0420/" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:text-cyan-100 transition-colors" aria-label="Instagram">
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       </a>
-      <!-- Facebook -->
       <a href="https://www.facebook.com/huang.dou.962148" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:text-cyan-100 transition-colors" aria-label="Facebook">
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-        </svg>
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </a>
-      <!-- Discord -->
       <a href="https://discord.com/users/1143917714117759107" target="_blank" rel="noopener noreferrer" class="text-cyan-300 hover:text-cyan-100 transition-colors" aria-label="Discord">
-        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
-          <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-        </svg>
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
       </a>
     </div>
+    <!-- 版權聲明 -->
     <p>Copyright © 2026 HUANG XUAN-RUI All right reserved.</p>
   </footer>
 
+  <!-- JavaScript 腳本：使用 Plotly 繪製柱狀圖 (Bar Chart) -->
   <script>
+    // 1. 定義 X 軸選項與 Y 軸對應數據
     const xArray = ["Very agree", "Agree", "Maybe", "Unagree", "Very unagree"];
     const yArray = [50, 25, 13, 7, 5];
 
+    // 2. 設定圖表資料物件與長條顏色
     const data = [{
       x: xArray,
       y: yArray,
       type: "bar",
-      orientation: "v",
+      orientation: "v", // 垂直柱狀圖
       marker: {
         color: [
-          "rgb(239, 68, 68)",
-          "rgb(245, 158, 11)",
-          "rgb(34, 197, 94)",
-          "rgb(20, 184, 166)",
-          "rgb(59, 130, 246)"
+          "rgb(239, 68, 68)",  // 紅
+          "rgb(245, 158, 11)", // 橘
+          "rgb(34, 197, 94)",  // 綠
+          "rgb(20, 184, 166)", // 藍綠
+          "rgb(59, 130, 246)"  // 藍
         ]
       }
     }];
 
+    // 3. 設定圖表外觀佈局與背景透明
     const layout = {
       title: {
         text: "Are you donkey?",
         font: { size: 20, color: '#a5f3fc' }
       },
-      paper_bgcolor: 'rgba(0,0,0,0)',
-      plot_bgcolor: 'rgba(0,0,0,0)',
+      paper_bgcolor: 'rgba(0,0,0,0)', // 背景透明
+      plot_bgcolor: 'rgba(0,0,0,0)',  // 繪圖區透明
       font: { color: '#cbd5e1' },
       xaxis: { gridcolor: '#1c4259', zerolinecolor: '#1c4259' },
       yaxis: { gridcolor: '#1c4259', zerolinecolor: '#1c4259' },
       margin: { t: 50, l: 50, r: 30, b: 50 }
     };
 
+    // 4. 初始化繪製 Plotly 圖表並填入 id="myPlot" 的容器中
     Plotly.newPlot("myPlot", data, layout, { responsive: true, displayModeBar: false });
 
+    // 5. 監聽視窗大小改變事件，實現 RWD 自動重繪圖表
     window.addEventListener('resize', () => {
       Plotly.Plots.resize('myPlot');
     });
